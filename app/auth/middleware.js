@@ -39,6 +39,7 @@ const middleware = async (req, res, next) => {
     console.log(error);
     res.status(401).json({
       message: "Unauthorized",
+      error: error.message,
     });
   }
 };

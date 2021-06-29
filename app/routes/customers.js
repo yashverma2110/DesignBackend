@@ -18,7 +18,9 @@ customerRouter.get("/customer/getAll", async (req, res) => {
     return res.json({ customer: data });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Some error occured" });
+    res
+      .status(500)
+      .json({ message: "Some error occured", error: error.message });
   }
 });
 
