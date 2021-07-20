@@ -58,7 +58,7 @@ userRouter.post("/user/login", async (req, res) => {
   }
 });
 
-// to get users with a pirticular role
+// to get users with a pirticular roles
 userRouter.get("/user/:role", async (req, res) => {
   try {
     const users = await req.query(`SELECT * FROM users WHERE roles=?`, [
