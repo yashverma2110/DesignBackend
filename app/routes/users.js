@@ -61,6 +61,9 @@ userRouter.post("/user/login", async (req, res) => {
 // to get users with a pirticular role
 userRouter.get("/user/:role", async (req, res) => {
   try {
+    if (!req.user.roles.includes("superadmin"))
+      return res.status(401).json({ message: "Unauthorised" });
+
     const users = await req.query(`SELECT * FROM users WHERE roles=?`, [
       req.params.role,
     ]);
